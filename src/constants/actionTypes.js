@@ -1,0 +1,3 @@
+export const FETCH_CAR_OF_THE_DAY = 'FETCH_CAR_OF_THE_DAY';
+export const FETCH_CAR_MAKES = 'FETCH_CAR_MAKES';
+export const FETCH_CAR_MODELS = 'FETCH_CAR_MODELS';
