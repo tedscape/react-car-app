@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const DetailsPage = ({ children }) => (
+const DetailsPage = ({ params }) => (
   <div>
     <h2>DetailsPage</h2>
-    {children}
+    {params.make} | {params.model} | {params.id}
   </div>
 );
 DetailsPage.propTypes = {
-  children: PropTypes.any,
+  params: PropTypes.any,
 };
 
 export default DetailsPage;

@@ -10,16 +10,14 @@ import {
   SearchPage,
   DetailsPage,
   // NotFoundPage,
-} from './containers/pages';
+} from './pages';
 import CoreLayout from './layouts/coreLayout';
 
 const routes = () => (
   <Router history={browserHistory}>
     <Route path="/" component={CoreLayout}>
       <IndexRoute component={HomePage} />
-      <Route path="make" component={DetailsPage}>
-        <Route path="model/:id" component={SearchPage} />
-      </Route>
+      <Route path=":make/:model/:id" component={DetailsPage} />
       <Route path="Search" component={SearchPage} />
     </Route>
   </Router>
