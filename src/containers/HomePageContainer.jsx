@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { CarDetails } from '../components';
+import { CarDetailsComponent } from '../components';
 
 const desc = 'The Mazda MX-5 is a traditional two-seat sports car, with a lightweight body and rear-wheel drive. It has a folding, fabric roof and is among the least expensive convertibles. This fourth-generation MX-5 is fantastic fun to drive. Motoring magazine Wheels named it Car of the Year for 2016.';
 
 const HomePage = () => (
   <div>
     <h3>Car of the Week</h3>
-    <CarDetails
+    <CarDetailsComponent
       name="i30"
       id="30"
       make="Hyundai"

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router';
 
-const PageHeader = ({ appName, menuItems }) =>
+const PageHeaderComponent = ({ appName, menuItems }) =>
 (
   <Navbar>
     <Navbar.Header>
@@ -29,13 +29,13 @@ const PageHeader = ({ appName, menuItems }) =>
     </Navbar.Collapse>
   </Navbar>
 );
-PageHeader.propTypes = {
+PageHeaderComponent.propTypes = {
   appName: PropTypes.any,
   menuItems: PropTypes.any,
 
 };
-PageHeader.defaultProps = {
+PageHeaderComponent.defaultProps = {
   menuItems: [],
 };
 
-export default PageHeader;
+export default PageHeaderComponent;

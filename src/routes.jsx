@@ -6,19 +6,19 @@ import {
     IndexRoute,
 } from 'react-router';
 import {
-  HomePage,
-  SearchPage,
-  DetailsPage,
+  HomePageContainer,
+  SearchCarsContainer,
+  CarDetailsContainer,
   // NotFoundPage,
-} from './pages';
-import CoreLayout from './layouts/coreLayout';
+} from './containers';
+import CoreLayout from './layouts/CoreLayout';
 
 const routes = () => (
   <Router history={browserHistory}>
     <Route path="/" component={CoreLayout}>
-      <IndexRoute component={HomePage} />
-      <Route path=":make/:model/:id" component={DetailsPage} />
-      <Route path="Search" component={SearchPage} />
+      <IndexRoute component={HomePageContainer} />
+      <Route path=":make/:model/:id" component={CarDetailsContainer} />
+      <Route path="Search" component={SearchCarsContainer} />
     </Route>
   </Router>
 );

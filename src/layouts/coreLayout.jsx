@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { PageHeader } from '../components';
+import { PageHeaderComponent } from '../components';
 
 const navMenuItems = [
   {
@@ -16,7 +16,7 @@ const navMenuItems = [
 
 const CoreLayout = ({ children }) => (
   <div>
-    <PageHeader appName="Caaaars" menuItems={navMenuItems} />
+    <PageHeaderComponent appName="Caaaars" menuItems={navMenuItems} />
     <div className="container">
       {children}
     </div>

@@ -1,9 +1,9 @@
-import PageHeader from './pageHeader';
-import CarDetails from './carDetails';
-import SearchCarsForm from './searchCarsForm';
+import PageHeaderComponent from './PageHeaderComponent';
+import CarDetailsComponent from './CarDetailsComponent';
+import SearchCarsFormComponent from './SearchCarsFormComponent';
 
 export {
-    PageHeader,
-    CarDetails,
-    SearchCarsForm,
+    PageHeaderComponent,
+    CarDetailsComponent,
+    SearchCarsFormComponent,
 };
