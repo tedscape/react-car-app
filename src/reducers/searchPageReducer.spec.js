@@ -27,7 +27,7 @@ describe('searchPageReducer', () => {
           ] }),
       });
     const store = getStore();
-    let oldState = null;
+    let initialState = null;
     let newState = null;
     let listOfModels = null;
     let action = null;
@@ -35,25 +35,25 @@ describe('searchPageReducer', () => {
       action = {
         type: 'CLEAR_VALUES_SEARCH',
       };
-      oldState = store.getState();
+      initialState = store.getState();
       store.dispatch(action);
       newState = store.getState();
       listOfModels = newState.searchPage.get('listOfModels');
     });
-    it('newstate not equal to old state', () => {
-      expect(newState).to.not.equal(oldState);
+    it('should not habe newstate not equal to initialState', () => {
+      expect(newState).to.not.equal(initialState);
     });
-    it('the list of models should have length 0', () => {
+    it('should have no items in the list of models', () => {
       expect(listOfModels).to.have.length(0);
     });
-    it('the list of makes should have length 0', () => {
+    it('should have not items in the the listOfMakes', () => {
       expect(newState.searchPage.get('listOfMakes')).to.have.length(0);
     });
   });
   describe('When FETCH_MODELS_FOR_SEARCH_FULFILLED is the action', () => {
     const getStore = () => createStore(rootReducer, {});
     const store = getStore();
-    let oldState = null;
+    let initialState = null;
     let newState = null;
     let listOfModels = null;
     let action = null;
@@ -70,22 +70,26 @@ describe('searchPageReducer', () => {
           },
         ],
       };
-      oldState = store.getState();
+      initialState = store.getState();
       store.dispatch(action);
       newState = store.getState();
       listOfModels = newState.searchPage.get('listOfModels');
     });
-    it('newstate equal to old state(by design)', () => {
-      expect(newState).to.not.equal(oldState);
+    it('should have newstate not equal to old state', () => {
+      expect(newState).to.not.equal(initialState);
     });
-    it('list of models should have length 2', () => {
+    it('should have 2 items in the list of model', () => {
       expect(listOfModels).to.have.length(2);
     });
   });
   describe('When FETCH_MAKES_FOR_SEARCH_FULFILLED is the action', () => {
+    let initialState = {
+      searchPage: fromJS({
+        listOfMakes: [],
+      }),
+    };
     const getStore = () => createStore(rootReducer, {});
     const store = getStore();
-    let oldState = null;
     let newState = null;
     let listOfMakes = null;
     let action = null;
@@ -102,15 +106,15 @@ describe('searchPageReducer', () => {
           },
         ],
       };
-      oldState = store.getState();
+      initialState = store.getState();
       store.dispatch(action);
       newState = store.getState();
       listOfMakes = newState.searchPage.get('listOfMakes');
     });
-    it('newstate equal to old state(by design)', () => {
-      expect(newState).to.not.equal(oldState);
+    it('should have newstate not equal to old state', () => {
+      expect(newState).to.not.equal(initialState);
     });
-    it('list of models should have length 2', () => {
+    it('should have 2 items in list of makes', () => {
       expect(listOfMakes).to.have.length(2);
     });
   });

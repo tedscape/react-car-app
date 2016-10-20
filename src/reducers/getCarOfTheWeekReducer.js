@@ -6,7 +6,6 @@ const initialState = new Map({
   review: '',
   modelId: undefined,
   carDetails: undefined,
-  loading: false,
   errorMessage: undefined,
 });
 
