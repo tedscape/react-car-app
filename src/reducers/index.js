@@ -1,9 +1,14 @@
-
 import { combineReducers } from 'redux';
-import carMake from './carMake';
+import { reducer as formReducer } from 'redux-form';
+import searchPage from './searchPageReducer';
+import selectedModel from './getCarDetailsReducer';
+import carOfTheWeek from './getCarOfTheWeekReducer';
 
 const rootReducer = combineReducers({
-  carMake,
+  carOfTheWeek,
+  selectedModel,
+  searchPage,
+  form: formReducer,
 });
 
 export default rootReducer;

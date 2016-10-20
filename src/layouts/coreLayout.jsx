@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { PageHeaderComponent } from '../components';
+import './CoreLayout.css';
 
 const navMenuItems = [
   {
@@ -17,7 +18,7 @@ const navMenuItems = [
 const CoreLayout = ({ children }) => (
   <div>
     <PageHeaderComponent appName="Caaaars" menuItems={navMenuItems} />
-    <div className="container">
+    <div className="layout-content mx-auto py-2 px-1">
       {children}
     </div>
   </div>

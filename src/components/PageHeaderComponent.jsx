@@ -1,33 +1,33 @@
 import React, { PropTypes } from 'react';
-import { Navbar } from 'react-bootstrap';
+// import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 const PageHeaderComponent = ({ appName, menuItems }) =>
 (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <Link to="/">{appName}</Link>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <ul className="nav navbar-nav">
-        {
+
+  <nav className="navbar navbar-light bg-faded">
+    <Link
+      to="/"
+      className="navbar-brand"
+    >
+      {appName}
+    </Link>
+    <ul className="nav navbar-nav">
+      {
         menuItems.map(item => (
-          <li className="nav nav-item" key={item.id}>
+          <li className="nav-item" key={item.id}>
             <Link
               key={item.id}
               to={item.link}
+              className="nav-link"
             >
               {item.text}
             </Link>
           </li>
         ))
         }
-      </ul>
-    </Navbar.Collapse>
-  </Navbar>
+    </ul>
+  </nav>
 );
 PageHeaderComponent.propTypes = {
   appName: PropTypes.any,

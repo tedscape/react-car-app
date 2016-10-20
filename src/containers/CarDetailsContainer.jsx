@@ -1,21 +1,59 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
 import { CarDetailsComponent } from '../components';
+import * as actions from '../actions';
 
-const DetailsPage = ({ params }) => (
+const renderDetailsComponent = model => (
   <div>
-    <h2>More details- {params.make} | {params.model} | {params.id}</h2>
+    <h4>Details page</h4>
     <CarDetailsComponent
-      name="i30"
-      id="30"
-      make="Hyundai"
-      price="AUD 21,000"
-      image="http://files3.porsche.com/filestore/image/multimedia/none/rd-2013-9pa-e2-2nd-gts-modelimage-sideshot/model/c287d350-5920-11e4-99aa-001a64c55f5c;s25/porsche-model.png"
+      name={model.name}
+      make={model.makeName}
+      price={model.price}
+      image={model.imageUrl}
     />
   </div>
 );
+class CarDetailsContainer extends Component {
+  componentDidMount() {
+    const { fetchCarDetails, model, params } = this.props;
+    if (!(model && model.modelId)) {
+      fetchCarDetails(params.id);
+    }
+  }
 
-DetailsPage.propTypes = {
-  params: PropTypes.any,
+  render() {
+    const { model } = this.props;
+    return (
+      <div>
+        {
+         model && model.name
+            ? renderDetailsComponent(model)
+            : <span>Car not found. Please try again later</span>
+        }
+      </div>
+    );
+  }
+}
+
+CarDetailsContainer.propTypes = {
+  model: PropTypes.object,
+  fetchCarDetails: PropTypes.func,
+  params: PropTypes.object,
 };
 
-export default DetailsPage;
+const mapStateToProps = ({ selectedModel }) => ({
+  model: selectedModel.get('carDetails'),
+});
+
+
+const mapDispatchToProps = dispatch => (
+  {
+    fetchCarDetails: id => dispatch(actions.getModel(id)),
+  }
+);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CarDetailsContainer);

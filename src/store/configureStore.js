@@ -1,4 +1,6 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from '../reducers';
 
 const configureStore = (initialState) => {
@@ -7,7 +9,7 @@ const configureStore = (initialState) => {
   return createStore(
     rootReducer,
     initialState,
-    composeEnhancers()
+    composeEnhancers(applyMiddleware(thunk, promiseMiddleware()))
   );
 };
 

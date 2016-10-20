@@ -1,34 +1,26 @@
 import React, { PropTypes } from 'react';
-import { Panel } from 'react-bootstrap';
-import numeral from 'numeral';
+import getFormattedPrice from '../utils/getFormattedPrice';
 
-const getTitle = link => (
-  <h2>{link}</h2>
-);
 const CarDetails = ({
   name,
-  id,
   make,
   price,
   image,
   description,
 }) =>
-(
-  <Panel header={getTitle(`${make} ${name} (${id})`)}>
-    <div className="model-details">
-      <img src={image} alt="car-pic" className="img-responsive" />
-      <div className="details">
-        <div className="description">{description}</div>
-        <h4 className="price">AUD {numeral(price).format('0,0.00')}</h4>
-      </div>
-    </div>
-  </Panel>
+(<div className="card">
+  <img src={image} className="img-fluid w-100" alt="Car details" />
+  <div className="card-block">
+    <h5 className="card-title">{`${make} ${name}`}</h5>
+    <p className="card-text">{description}</p>
+    <h6 className="card-subtitle">{getFormattedPrice(price)}</h6>
+  </div>
+</div>
 );
 CarDetails.propTypes = {
   name: PropTypes.string,
   make: PropTypes.string,
-  id: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   image: PropTypes.string,
   description: PropTypes.string,
 };
