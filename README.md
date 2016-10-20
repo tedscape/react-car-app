@@ -1,9 +1,9 @@
-# React redux boilerplate
+# Caaaars - A sample app to test react, redux and following tech.
 ## Purpose
-The purpose of having this repo is for me to have a starting point to do apps. Please suggest changes.
+Trying out react router and teaching self.
 
 ## Libs
-This is a boilerplate to start creating apps with the following
+This app uses the following
  - React
  - redux
  - react-hot-loading
@@ -11,6 +11,12 @@ This is a boilerplate to start creating apps with the following
  - react-bootstrap
  - react-router
  - eslint-airbnb
+ - promise-middleware
+ - redux-thunk
+ - karma
+ - mocha
+ - phantom
+ - bootstrap 4 alpha
 
 ## Setting up
 
@@ -25,6 +31,10 @@ npm install -g eslint
 npm start
 ```
 
+## Running tests
+```
+karma start
+```
 
 ## License
 feel free to take copy and use anywhere. MIT licensed.
